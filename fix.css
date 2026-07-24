@@ -1,0 +1,6 @@
+/* Hover uses the independent scale property, leaving orbital transforms untouched. */
+.project-signal{scale:1;transition:background .3s,color .3s,box-shadow .3s,scale .3s}
+.project-signal:hover,.project-signal.active{transform:none;scale:1.08}
+@keyframes counter-spin{from{transform:translateY(-165px) rotate(0)}to{transform:translateY(-165px) rotate(-360deg)}}
+@keyframes counter-spin-reverse{from{transform:translateX(237px) rotate(0)}to{transform:translateX(237px) rotate(360deg)}}
+@media(max-width:720px){.signal-one,.signal-two,.signal-three{animation:none}}
