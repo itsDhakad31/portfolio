@@ -1,4 +1,4 @@
-lucide.createIcons();
+if (window.lucide) lucide.createIcons();
 
 const canvas = document.querySelector('#fluid');
 const ctx = canvas.getContext('2d');
@@ -24,6 +24,11 @@ document.querySelectorAll('.project-signal').forEach(button => button.addEventLi
   const id = button.dataset.project;
   document.querySelectorAll('.project-signal, .project-detail').forEach(item => item.classList.remove('active'));
   button.classList.add('active'); document.querySelector(`[data-detail="${id}"]`).classList.add('active');
+  if (matchMedia('(max-width: 760px)').matches) {
+    techStack.classList.remove('open');
+    techSun.setAttribute('aria-expanded', 'false');
+    requestAnimationFrame(() => document.querySelector(`[data-detail="${id}"]`).scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  }
 }));
 
 const techSun = document.querySelector('#tech-sun');
