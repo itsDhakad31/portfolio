@@ -16,11 +16,15 @@
   .solar-system::before, .solar-system::after { content: ''; position: absolute; top: 50%; left: 50%; border: 1px dashed #ffffff45; border-radius: 50%; translate: -50% -50%; pointer-events: none; }
   .solar-system::before { width: 270px; height: 270px; }
   .solar-system::after { width: 390px; height: 390px; }
-  .orbit { inset: auto; translate: none; border: 0; pointer-events: auto; animation: none !important; transform: none; }
-  .orbit-one { top: 20px; left: 6px; width: 96px; height: 96px; }
-  .orbit-two { top: 107px; right: 2px; width: 88px; height: 88px; }
-  .orbit-three { bottom: 15px; left: 50%; width: 104px; height: 104px; translate: -50% 0; }
-  .project-signal, .signal-one, .signal-two, .signal-three { inset: 0; width: 100%; height: 100%; translate: none; transform: none !important; animation: none !important; pointer-events: auto; touch-action: manipulation; transition: background .2s, color .2s, box-shadow .2s, scale .2s; scale: 1; }
+  .orbit { inset: 0; width: auto; height: auto; translate: none; border: 0; pointer-events: none; transform: none; transform-origin: center; }
+  .orbit-one { animation: mobile-orbit-one 23s linear infinite !important; }
+  .orbit-two { animation: mobile-orbit-two 32s linear infinite !important; }
+  .orbit-three { animation: mobile-orbit-three 40s linear infinite !important; }
+  .project-signal { pointer-events: auto; touch-action: manipulation; transition: background .2s, color .2s, box-shadow .2s, scale .2s; scale: 1; }
+  .signal-one, .signal-two, .signal-three { width: 92px; height: 92px; translate: -50% 0; transform: none !important; }
+  .signal-one { top: 32px; left: 50%; animation: mobile-upright-one 23s linear infinite !important; }
+  .signal-two { top: 50%; left: calc(100% - 42px); width: 82px; height: 82px; translate: -50% -50%; animation: mobile-upright-two 32s linear infinite !important; }
+  .signal-three { bottom: 28px; top: auto; left: 50%; width: 100px; height: 100px; animation: mobile-upright-three 40s linear infinite !important; }
   .project-signal:hover, .project-signal.active { transform: none !important; scale: 1.05; }
   .project-signal b { font-size: 8px; }
   .project-signal span { top: 10px; font-size: 8px; }
@@ -43,4 +47,15 @@
   .contact-section footer { gap: 12px; flex-wrap: wrap; }
   .contact-section footer span { width: 100%; margin-bottom: 15px; }
   .contact-section footer a { margin-left: 0; }
+}
+
+@keyframes mobile-orbit-one { from { rotate: 0deg; } to { rotate: 360deg; } }
+@keyframes mobile-orbit-two { from { rotate: 0deg; } to { rotate: -360deg; } }
+@keyframes mobile-orbit-three { from { rotate: 0deg; } to { rotate: 360deg; } }
+@keyframes mobile-upright-one { from { rotate: 0deg; } to { rotate: -360deg; } }
+@keyframes mobile-upright-two { from { rotate: 0deg; } to { rotate: 360deg; } }
+@keyframes mobile-upright-three { from { rotate: 0deg; } to { rotate: -360deg; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .orbit-one, .orbit-two, .orbit-three, .signal-one, .signal-two, .signal-three { animation: none !important; }
 }
