@@ -9,25 +9,23 @@
   .round-action { width: 92px; height: 92px; }
   .section-heading { grid-template-columns: 1fr; gap: 18px; }
   .heading-note { text-align: left; }
+  .section-heading h2 { font-size: clamp(2.25rem, 10.5vw, 3rem); line-height: 1.05; }
 
-  .constellation { height: 515px; overflow: hidden; margin: 28px 0 32px; cursor: default; touch-action: pan-y; }
+  .constellation { height: 510px; overflow: hidden; margin: 28px 0 32px; cursor: default; touch-action: pan-y; }
   .solar-system { width: 100%; height: 470px; }
-  .orbit { pointer-events: auto; animation: none !important; }
-  .orbit-one { width: 218px; height: 218px; }
-  .orbit-two { width: 300px; height: 282px; }
-  .orbit-three { width: 364px; height: 390px; }
-  .project-signal { pointer-events: auto; touch-action: manipulation; transition: background .2s, color .2s, box-shadow .2s, scale .2s; scale: 1; }
-  .project-signal:hover, .project-signal.active { transform: none; scale: 1.05; }
-  .signal-one { width: 88px; height: 88px; transform: translateY(-109px); animation: none !important; }
-  .signal-two { width: 80px; height: 80px; transform: translateX(150px); animation: none !important; }
-  .signal-three { width: 98px; height: 98px; transform: translateY(195px); animation: none !important; }
-  .signal-one:hover, .signal-one.active { transform: translateY(-109px); }
-  .signal-two:hover, .signal-two.active { transform: translateX(150px); }
-  .signal-three:hover, .signal-three.active { transform: translateY(195px); }
+  .solar-system::before, .solar-system::after { content: ''; position: absolute; top: 50%; left: 50%; border: 1px dashed #ffffff45; border-radius: 50%; translate: -50% -50%; pointer-events: none; }
+  .solar-system::before { width: 270px; height: 270px; }
+  .solar-system::after { width: 390px; height: 390px; }
+  .orbit { inset: auto; translate: none; border: 0; pointer-events: auto; animation: none !important; transform: none; }
+  .orbit-one { top: 20px; left: 6px; width: 96px; height: 96px; }
+  .orbit-two { top: 107px; right: 2px; width: 88px; height: 88px; }
+  .orbit-three { bottom: 15px; left: 50%; width: 104px; height: 104px; translate: -50% 0; }
+  .project-signal, .signal-one, .signal-two, .signal-three { inset: 0; width: 100%; height: 100%; translate: none; transform: none !important; animation: none !important; pointer-events: auto; touch-action: manipulation; transition: background .2s, color .2s, box-shadow .2s, scale .2s; scale: 1; }
+  .project-signal:hover, .project-signal.active { transform: none !important; scale: 1.05; }
   .project-signal b { font-size: 8px; }
   .project-signal span { top: 10px; font-size: 8px; }
   .project-signal svg { bottom: 9px; width: 12px; }
-  .tech-sun { width: 132px; height: 132px; }
+  .tech-sun { width: 132px; height: 132px; z-index: 3; }
   .sun-core { inset: 8px; font-size: 10px; }
   .sun-core svg { width: 20px; margin-bottom: 4px; }
   .tech-stack-popover { width: 270px; gap: 5px; }
